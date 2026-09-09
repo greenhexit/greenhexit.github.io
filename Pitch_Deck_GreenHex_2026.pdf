@@ -1,0 +1,298 @@
+html_content = """
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>GREENHEX.IT - Инвестиционный пакет</title>
+<style>
+    *, *::before, *::after { 
+        box-sizing: border-box; 
+    }
+    @page {
+        size: A4;
+        margin: 20mm 15mm;
+        background-color: #f2f7f4;
+        @bottom-right {
+            content: counter(page);
+            font-size: 10pt;
+            color: #666;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    }
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: #2d3748;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        font-size: 11pt;
+    }
+    .header {
+        text-align: center;
+        background-color: #0f291e;
+        color: white;
+        padding: 40px 20px;
+        margin: -20mm -15mm 15mm -15mm;
+        border-bottom: 6px solid #38a169;
+    }
+    .header-logo-hex {
+        width: 40px;
+        height: 22.85px;
+        background-color: #48bb78;
+        position: relative;
+        display: inline-block;
+        margin: 15px auto 25px auto;
+    }
+    .header-logo-hex::before, .header-logo-hex::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+    }
+    .header-logo-hex::before {
+        bottom: 100%;
+        border-bottom: 11.42px solid #48bb78;
+    }
+    .header-logo-hex::after {
+        top: 100%;
+        border-top: 11.42px solid #48bb78;
+    }
+    .header h1 {
+        margin: 0;
+        font-size: 28pt;
+        letter-spacing: 3px;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+    .header h1 span {
+        color: #48bb78;
+    }
+    .header h2 {
+        margin: 10px 0 0 0;
+        font-size: 14pt;
+        font-weight: 400;
+        color: #c6f6d5;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .meta-info {
+        display: block;
+        margin-top: 25px;
+        font-size: 11pt;
+        color: #e2e8f0;
+        line-height: 1.8;
+        background: rgba(255,255,255,0.05);
+        padding: 15px;
+        border-radius: 8px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .meta-info strong {
+        color: #9ae6b4;
+    }
+    
+    .slide-section {
+        margin-bottom: 20px;
+        background: #ffffff;
+        padding: 20px 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        border-left: 5px solid #38a169;
+        page-break-inside: avoid;
+    }
+    
+    .slide-title {
+        color: #1a365d;
+        font-size: 14pt;
+        margin-top: 0;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #edf2f7;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        position: relative;
+    }
+    
+    .hex {
+        width: 12px;
+        height: 6.85px;
+        background-color: #38a169;
+        position: relative;
+        display: inline-block;
+        margin-right: 12px;
+        margin-bottom: 2px;
+    }
+    .hex::before, .hex::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+    }
+    .hex::before {
+        bottom: 100%;
+        border-bottom: 3.42px solid #38a169;
+    }
+    .hex::after {
+        top: 100%;
+        border-top: 3.42px solid #38a169;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+    ul {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 6px;
+    }
+    .highlight {
+        font-weight: 700;
+        color: #276749;
+    }
+    .badge {
+        display: inline-block;
+        background-color: #f0fff4;
+        color: #22543d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 10pt;
+        border: 1px solid #c6f6d5;
+        font-weight: 600;
+    }
+    .alert-box {
+        background-color: #fffaf0;
+        border-left: 4px solid #dd6b20;
+        padding: 12px 15px;
+        margin: 10px 0;
+        font-size: 10.5pt;
+        border-radius: 0 6px 6px 0;
+    }
+    .alert-box strong {
+        color: #c05621;
+    }
+
+    .contacts-box {
+        background-color: #1a202c;
+        color: #cbd5e0;
+        border: none;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 30px;
+        page-break-inside: avoid;
+        text-align: center;
+    }
+    .contacts-box h2 {
+        margin-top: 0;
+        color: #fff;
+        font-size: 16pt;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .contact-item {
+        margin-bottom: 10px;
+        font-size: 12pt;
+    }
+    .contact-item strong {
+        color: #68d391;
+    }
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-logo-hex"></div>
+        <h1>GREEN<span>HEX</span>.IT</h1>
+        <h2>Инвестиционный пакет проекта</h2>
+        <div class="meta-info">
+            <strong>Основатель стартапа:</strong> Евгений Коршук<br>
+            <strong>Стадия проекта:</strong> Pre-seed раунд (Привлечение 3 Бизнес-Ангелов)<br>
+            <strong>Локация:</strong> Минская область, Республика Беларусь
+        </div>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>1. Концепция и манифест стартапа</h2>
+        <p><span class="highlight">GreenHex.IT</span> — первый в Республике Беларусь прецедент создания высокотехнологичного ИТ-экополиса, разворачиваемого на базе экспертного краудсорсинга (Work for Equity) и государственно-частного партнерства.</p>
+        <p><strong>Проект решает три ключевые задачи:</strong></p>
+        <ul>
+            <li>Предоставляет ИТ-компаниям автономную загородную инфраструктуру.</li>
+            <li>Вовлекает в оборот неиспользуемые земли для Облисполкома.</li>
+            <li>Гарантирует высокую доходность для инвесторов на ранних стадиях.</li>
+        </ul>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>2. Проблема и гексагональное решение</h2>
+        <p><strong>Проблема:</strong> Высокая стоимость прокладки сетей при загородном строительстве (CAPEX) и отсутствие экологически чистой, автономной среды для работы ИТ-специалистов.</p>
+        <p><strong>Инновация:</strong> Застройка по строгой математической сетке правильных шестиугольников (сот).</p>
+        <div class="alert-box">
+            <strong>Эффективность сот:</strong> Сокращает общую протяженность внутренних дорог, труб и кабелей на <span class="highlight">18%</span> по сравнению с классической прямоугольной застройкой, экономя сотни тысяч долларов на инфраструктуре.
+        </div>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>3. Технический паспорт приоритетного участка</h2>
+        <ul>
+            <li><span class="badge">Площадь</span> <strong>8,0000 га</strong> в пригородной зоне Минской области (Узденское направление, Дещенский с/с, 32 км от МКАД по Слуцкой трассе Р23).</li>
+            <li><span class="badge">Статус</span> Земля официально включена в перечень инвест-площадок Облисполкома. Целевое назначение — для строительства производственно-складского объекта (вывод из сельхозоборота не требуется).</li>
+            <li><span class="badge">Инженерный джекпот</span> Возможность подключения к электричеству и водоснабжению составляет <strong>всего 150 метров</strong>. На участке имеются остатки советских фундаментов, пригодных для монтажа быстросборных CLT-модулей, а бетонный бой идет на отсыпку дороги до асфальта ($0 затрат).</li>
+        </ul>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>4. Инфраструктурные контуры Фазы №1</h2>
+        <ul>
+            <li><strong>Контур 1 (Ядро):</strong> Центральное административное здание-шестигранник (офисы ИТ-резидентов, коворкинг, экранированная серверная комната и оптоволокно ВОЛС Белтелеком).</li>
+            <li><strong>Контур 2-3 (Жилой):</strong> Малоэтажный жилой корпус (до 3 этажей) со смарт-апартаментами и коливингами для специалистов в 25 минутах от столицы.</li>
+            <li><strong>Контур 4-5 (Автономия и Агро):</strong> Наземный комплекс солнечной генерации СЭС на 50 кВт с накопителями энергии, локальная био-очистка стоков (ЛОС), круглогодичные автоматические парники на гидропонике и эко-птицеферма.</li>
+        </ul>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>5. Юридический щит и налоговые льготы (РБ)</h2>
+        <ul>
+            <li><strong>Декрет № 10:</strong> Заключение Инвестиционного договора дает право на получение 8 га земли в аренду БЕЗ аукциона, освобождение от земельного налога и ввозных пошлин/НДС на ИТ-оборудование.</li>
+            <li><strong>Декрет № 6:</strong> Локация в сельской местности гарантирует <strong>0% налога на прибыль</strong> и <strong>0% налога на недвижимость</strong> на протяжении 7 лет с момента регистрации компании.</li>
+            <li><strong>Программы Минэкономики:</strong> Создание рабочих мест позволяет привлечь государственное софинансирование / заём БФФПП в объеме до 70% от стоимости инженерных капексов под ставку рефинансирования НБРБ.</li>
+        </ul>
+    </div>
+
+    <div class="slide-section">
+        <h2 class="slide-title"><span class="hex"></span>6. Финансовый оффер для первых 3 бизнес-ангелов</h2>
+        <p><strong>Целевое назначение чеков:</strong> Оплата регистрации ООО, проведение инженерного аудита остатков фундаментов в Теляково и упаковка ТЭО для Облисполкома.</p>
+        <p><strong>Корпоративный контроль:</strong> 100% долей и акций компании всегда остаются в единоличной собственности Основателя — Евгения Коршука. Инвесторы не имеют операционного голоса.</p>
+        <div class="alert-box" style="border-left-color: #38a169; background-color: #f0fff4;">
+            <strong>Защита капитала (Revenue Share):</strong> Вход оформляется через Договора целевого инвестиционного займа с фантомными правами. Инвесторы делят между собой <strong>30% от чистой операционной прибыли</strong> (по 10% каждому ангелу) от коммерческой аренды ИТ-офисов Центрального ядра. Основатель сохраняет право выкупа (бай-бэк) контрактов через 5 лет.
+        </div>
+    </div>
+
+    <div class="contacts-box">
+        <h2>7. Контакты</h2>
+        <div class="contact-item"><strong>Основатель проекта:</strong> Евгений Коршук</div>
+        <div class="contact-item"><strong>Instagram:</strong> @yauheni.korshuk</div>
+        <div class="contact-item"><strong>Веб-сайт проекта (GitHub):</strong> greenhexit.github.io</div>
+        <div class="contact-item"><strong>Telegram:</strong> [Ваш юзернейм]</div>
+    </div>
+
+</body>
+</html>
+"""
+
+with open("greenhex_pitch.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+from weasyprint import HTML
+HTML("greenhex_pitch.html").write_pdf("GreenHex_Invest_Pitch.pdf")
+print("PDF generated successfully.")
