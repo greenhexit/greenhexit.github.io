@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учредители и соучредители — GreenHex.IT</title>
+    <style>
+        :root {
+            --bg-dark: #0f1311;
+            --bg-card: #161d19;
+            --accent: #2ecc71;
+            --accent-glow: rgba(46, 204, 113, 0.2);
+            --text-main: #e0e6e3;
+            --text-muted: #8ca397;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Навигация */
+        nav { padding: 25px 0; border-bottom: 1px solid #1a241f; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #fff; font-size: 1.5rem; font-weight: 850; text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--accent); }
+
+        /* Хедер */
+        header { padding: 60px 0 40px; text-align: left; }
+        h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; color: #fff; letter-spacing: -1px; }
+        h1 span { color: var(--accent); }
+        .lead { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; margin-bottom: 20px; }
+
+        /* Манифест */
+        .manifesto-box { background-color: rgba(46, 204, 113, 0.03); border: 1px dashed rgba(46, 204, 113, 0.2); border-radius: 10px; padding: 20px; margin-bottom: 50px; font-size: 0.95rem; color: var(--text-main); }
+        .manifesto-box b { color: #fff; }
+
+        /* Сетка команды */
+        .founders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .founder-card { background-color: var(--bg-card); border: 1px solid #1f2b24; border-radius: 14px; padding: 30px; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .founder-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(46, 204, 113, 0.05); }
+        .card-top { margin-bottom: 20px; }
+        .status-badge { display: inline-block; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; }
+        .status-badge.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+        .name { color: #fff; font-size: 1.4rem; font-weight: 700; margin-bottom: 5px; }
+        .role { color: var(--accent); font-size: 0.95rem; font-weight: 600; margin-bottom: 15px; }
+        .bio { font-size: 0.9rem; color: var(--text-muted); text-align: justify; }
+        .share-info { font-size: 0.85rem; color: #697d72; background: rgba(0,0,0,0.15); padding: 10px 12px; border-radius: 6px; border-left: 3px solid var(--accent); margin-top: 15px; }
+
+        /* Блок CTA */
+        .cta-box { background: radial-gradient(circle at top left, #14291b, var(--bg-card)); border: 1px solid #1f2b24; border-radius: 14px; padding: 40px; text-align: center; margin-bottom: 60px; }
+        .cta-box h3 { font-size: 1.6rem; color: #fff; margin-bottom: 15px; font-weight: 800; }
+        .cta-box p { color: var(--text-muted); max-width: 650px; margin: 0 auto 25px; }
+        .btn { display: inline-block; padding: 14px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; background-color: var(--accent); color: var(--bg-dark); transition: all 0.3s ease; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px var(--accent-glow); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4); }
+
+        footer { background: #080b09; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid #121815; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">GreenHex<span>.IT</span></a>
+            <a href="index.html" class="back-link">← На главную страницу</a>
+        </div>
+    </nav>
+
+    <header class="container">
+        <h1>Капитал и Лидеры: <span>Учредители</span></h1>
+        <p class="lead">Структура корпоративного управления и распределения долей первой очереди ИТ-экополиса GreenHex.IT. Мы объединяем силу единоличного лидерства с потенциалом коллективного фаундерства [INDEX].</p>
+        
+        <div class="manifesto-box">
+            ⬢ <b>Принцип неделимости контроля:</b> Для предотвращения классических управленческих тупиков, характерных для ранних стадий технологических компаний, 100% корпоративного и долевого контроля в Управляющей компании жестко закреплены за Инициатором проекта [INDEX]. Соавторы и инвесторы привлекаются на прозрачных условиях распределения будущих финансовых потоков (Revenue Share и Опционы) без размытия уставного фонда ООО [INDEX].
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="founders-grid">
+
+            <!-- Карточка 1: Евгений Коршук -->
+            <div class="founder-card">
+                <div class="card-top">
+                    <div class="status-badge active">Учредитель (100% ООО)</div>
+                    <div class="name">Евгений Коршук</div>
+                    <div class="role">Основатель стартапа / Инициатор проекта</div>
+                    <p class="bio">Автор концепции гексагонального экополиса GreenHex.IT [INDEX]. Отвечает за общее стратегическое планирование, GR-менеджмент (взаимодействие с Минским облисполкомом и Райисполкомом по инвест-договору) [INDEX], координацию волонтерских экспертных пулов и проведение раундов финансирования.</p>
+                </div>
+                <div class="share-info">
+                    <b>Корпоративные права:</b> 100% голосующих долей, право решающего голоса во всех контурах застройки.
+                </div>
+            </div>
+
+            <!-- Карточка 2: Роль Юриста -->
+            <div class="founder-card">
+                <div class="card-top">
+                    <div class="status-badge">Соучредитель (Стадия опциона)</div>
+                    <div class="name">Вакансия открыта</div>
+                    <div class="role">Ведущий Юрист проекта (РБ) / Соавтор</div>
+                    <p class="bio">Позиция ключевого соавтора, отвечающего за интеграцию правового щита проекта. Ключевой KPI этапа — регистрация ООО в Дещенском сельсовете и успешная защита Инвестиционного договора в рамках Декрета №10 для бесплатного выделения 8 га земли у д. Теляково [INDEX].</p>
+                </div>
+                <div class="share-info">
+                    <b>Условия соавторства:</b> Опционное соглашение на получение до 3% от прибыли УК или 15 кв.м жилья [INDEX].
+                </div>
+            </div>
+
+            <!-- Карточка 3: Роль Архитектора -->
+            <div class="founder-card">
+                <div class="card-top">
+                    <div class="status-badge">Соучредитель (Стадия опциона)</div>
+                    <div class="name">Вакансия открыта</div>
+                    <div class="role">Архитектор-урбанист / Генпланист</div>
+                    <p class="bio">Ключевой соавтор строительно-планировочного контура. Отвечает за разработку форэскизов Центрального шестигранного ИТ-здания на существующем советском фундаменте (~1500 кв.м) [INDEX] и точную сетку посадки сотовых малоэтажных жилых строений на кадастровый план 8 га [INDEX].</p>
+                </div>
+                <div class="share-info">
+                    <b>Условия соавторства:</b> Опцион 3% или целевой жилищный сертификат на смарт-студию (15 кв.м) [INDEX].
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-box">
+            <h3>Войти в состав соавторов Проекта</h3>
+            <p>Мы ищем сильных инженеров по возобновляемой энергетике (СЭС 50 кВт), юристов и архитекторов, готовых инвестировать свой интеллект и время на pre-seed стадии в обмен на юридически закрепленные доли от прибыли экополиса [INDEX].</p>
+            <a href="vacancies.html" class="btn">Посмотреть ТЗ и подать анкету</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Проект высокотехнологичного ИТ-экополиса GreenHex.IT. Узденский район, Республика Беларусь. Все права соавторов защищены [INDEX].</p>
+        </div>
+    </footer>
+
+</body>
+</html>
