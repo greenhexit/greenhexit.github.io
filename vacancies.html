@@ -250,6 +250,84 @@ textarea.form-control { resize: vertical; min-height: 70px; }
     </div>
 </div>
 
+    <!-- JavaScript для автоматической отправки анкет в Telegram Евгения Коршука -->
+<script>
+    // ⚙️ НАСТРОЙКА ДАННЫХ (Заполните своими значениями между кавычками)
+    const TELEGRAM_BOT_TOKEN = "8516105554:AAHIXfqyQ3xccD6VipTZX_M1wAM5mm63fP4";
+    const TELEGRAM_CHAT_ID = "8516105554";
+
+    function openFormModal(event) {
+        event.preventDefault();
+        document.getElementById('applicationModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFormModal() {
+        document.getElementById('applicationModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeFormModalOutside(event) {
+        if (event.target.id === 'applicationModal') {
+            closeFormModal();
+        }
+    }
+
+    // Главная функция сбора данных и отправки
+    async function sendToTelegram(event) {
+        event.preventDefault(); // Блокируем перезагрузку страницы
+
+        // Извлекаем элементы формы по порядку
+        const name = event.target.querySelector('input[placeholder="Константин Иванов"]').value;
+        const telegram = event.target.querySelector('input[placeholder="@kos_tech"]').value;
+        const sphere = event.target.querySelector('select').value;
+        const link = event.target.querySelector('input[placeholder="https://linkedin.com"]').value;
+        const hours = event.target.querySelectorAll('select')[1].value;
+        const caseText = event.target.querySelector('textarea').value;
+
+        // Формируем структурированный текст сообщения со специальными смайликами-сотами
+        const messageText = 
+            `⬢ НОВАЯ ЗАЯВКА В GREENHEX.IT ⬢\n\n` +
+            `👤 Имя: ${name}\n` +
+            `✈️ Telegram: ${telegram}\n` +
+            `💼 Сфера: ${sphere}\n` +
+            `🔗 Портфолио/Линк: ${link}\n` +
+            `⏳ Время в неделю: ${hours}\n` +
+            `📝 Опыт/Кейс: ${caseText}`;
+
+        // URL адрес для отправки запроса в Telegram API
+        const url = `https://telegram.org{TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+        try {
+            // Отправляем асинхронный POST-запрос напрямую с сайта на сервера Telegram
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: messageText,
+                    parse_mode: 'HTML'
+                })
+            });
+
+            if (response.ok) {
+                // Если запрос прошел успешно
+                alert('Отлично! Ваша анкета успешно отправлена напрямую основателю проекта Евгению Коршуку в Telegram.');
+                event.target.reset(); // Очищаем поля формы
+                closeFormModal(); // Закрываем всплывающее окно
+            } else {
+                alert('Произошла ошибка при отправке через сервера Telegram. Попробуйте еще раз или свяжитесь с основателем напрямую.');
+            }
+        } catch (error) {
+            console.error('Ошибка сети:', error);
+            alert('Не удалось связаться с сервером. Проверьте интернет-соединение.');
+        }
+    }
+
+    // Находим форму в модальном окне и вешаем на нее функцию отправки
+    document.querySelector('#applicationModal form').onsubmit = sendToTelegram;
+</script>
+
 <!-- JavaScript для управления окном анкеты -->
 <script>
     function openFormModal(event) {
