@@ -706,6 +706,20 @@
     function closeLoanTermsOutside(event) { if (event.target.id === 'loanTermsModal') { closeLoanTerms(); } }
 </script>
 
+    function openLoanTerms(event) { 
+    event.preventDefault(); 
+    document.getElementById('loanTermsModal').classList.add('active'); 
+    document.body.style.overflow = 'hidden'; 
+}
+function closeLoanTerms() { 
+    document.getElementById('loanTermsModal').classList.remove('active'); 
+    document.body.style.overflow = 'auto'; 
+}
+function closeLoanTermsOutside(event) { 
+    if (event.target.id === 'loanTermsModal') { 
+        closeLoanTerms(); 
+    } 
+}
 
 </script>
 
