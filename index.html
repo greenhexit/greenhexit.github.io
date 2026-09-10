@@ -351,7 +351,7 @@
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Инвесторам</h4>
                         <a href="#investor" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Контакты для связи</a>
-                        <a href="#investor" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Финансовая прозрачность</a>
+                       <a href="#" onclick="openFinance(event)" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Финансовая прозрачность</a>
                     </div>
 
                     <!-- СТОЛБИК 3: Правовой блок -->
@@ -460,6 +460,87 @@
     function closePrivacyOutside(event) {
         if (event.target.id === 'privacyModal') {
             closePrivacy();
+        }
+    }
+</script>
+<!-- HTML структура модального окна Финансовой Прозрачности -->
+<div id="financeModal" class="modal-overlay" onclick="closeFinanceOutside(event)">
+    <div class="modal-content" style="max-width: 750px;">
+        <div class="modal-header">
+            <div class="modal-title">Аудит раунда: <span>Финансовая прозрачность</span></div>
+            <button class="modal-close-btn" onclick="closeFinance()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Стартап-проект <b>GreenHex.IT</b> функционирует на принципах абсолютной прозрачности капитала (Open Book Management). На текущей pre-seed стадии совокупный целевой бюджет раунда от 3 бизнес-ангелов зафиксирован на отметке <b>$12 000 (3 лота по $4 000 в эквиваленте за 10% фантомных акций)</b> [INDEX].</p>
+            
+            <p>Руководитель проекта <b>Евгений Коршук</b> утверждает жесткое целевое распределение стартового капитала, исключающее выплату операционных зарплат основателям на Фазе №1 [INDEX]:</p>
+            
+            <div style="overflow-x: auto; margin: 20px 0; background: #0f1311; border-radius: 8px; border: 1px solid #25332b;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="background: rgba(46, 204, 113, 0.05); color: #2ecc71;">
+                            <th style="padding: 12px 15px; border-bottom: 1px solid #25332b;">Целевая статья расходов</th>
+                            <th style="padding: 12px 15px; border-bottom: 1px solid #25332b;">Доля (%)</th>
+                            <th style="padding: 12px 15px; border-bottom: 1px solid #25332b;">Сумма ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;"><b>Юридический блок:</b> Регистрация ООО в Дещенском с/с, пошлины, инвест-договор.</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b; color: #2ecc71;">3.7%</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;">$450</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;"><b>Инженерные изыскания:</b> Инструментальный аудит фундаментов в Теляково, топосъемка 8 га [INDEX].</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b; color: #2ecc71;">24.2%</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;">$2 900</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;"><b>Архитектура и Маркетинг:</b> Эскизный проект сот, 3D-рендеры ИТ-ядра для сайта и Pitch Deck [INDEX].</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b; color: #2ecc71;">33.3%</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;">$4 000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;"><b>Стартовая подготовка земли:</b> Расчистка пустырей, дробление фундаментов под отсыпку 350 м дороги [INDEX].</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b; color: #2ecc71;">25.8%</td>
+                            <td style="padding: 10px 15px; border-bottom: 1px solid #25332b;">$3 100</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 15px; border-bottom: none;"><b>Административный резерв:</b> Командировки в Райисполком, пошлины, непредвиденные издержки [INDEX].</td>
+                            <td style="padding: 10px 15px; border-bottom: none; color: #2ecc71;">13.0%</td>
+                            <td style="padding: 10px 15px; border-bottom: none;">$1 550</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ul>
+                <li><b>Механизм отчетности:</b> Инвесторы раунда получают доступ к закрытому онлайн-кабинету с ежемесячным обновлением выписок по расчетному счету ООО и актов выполненных работ от подрядчиков [INDEX].</li>
+                <li><b>Конвертация в капекс:</b> Отчет по Фазе №1 является главным документом для открытия государственного софинансирования (70% по программам БФФПП) [INDEX].</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="closeFinance()" style="padding: 10px 20px; font-size: 0.9rem;">Закрыть аудит</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript для управления окном Финансовой Прозрачности -->
+<script>
+    function openFinance(event) {
+        event.preventDefault();
+        document.getElementById('financeModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFinance() {
+        document.getElementById('financeModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeFinanceOutside(event) {
+        if (event.target.id === 'financeModal') {
+            closeFinance();
         }
     }
 </script>
