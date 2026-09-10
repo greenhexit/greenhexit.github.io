@@ -319,7 +319,7 @@
             
             <div>
                 <a href="GreenHex_Invest_Pitch.pdf" download class="btn btn-primary">Скачать Pitch Deck и ТЭО</a>
-                <a href="#volunteer" class="btn btn-secondary">Обсудить условия займа</a>
+                <a href="#" onclick="openLoanTerms(event)" class="btn btn-secondary">Обсудить условия займа</a>
             </div>
         </div>
     </section>
@@ -555,6 +555,56 @@
     }
 </script>
 
+<!-- HTML структура модального окна Условий Инвестиционного Займа -->
+<div id="loanTermsModal" class="modal-overlay" onclick="closeLoanTermsOutside(event)">
+    <div class="modal-content" style="max-width: 680px;">
+        <div class="modal-header">
+            <div class="modal-title">Венчурный раунд: <span>Условия Инвестиционного Займа</span></div>
+            <button class="modal-close-btn" onclick="closeLoanTerms()">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: left;">
+            <p style="margin-bottom: 20px;">Инвестиционные условия pre-seed раунда проекта <b>GreenHex.IT</b> разработаны правовым блоком для полной защиты частного капитала и сохранения 100% операционного контроля за Основателем [INDEX].</p>
+            
+            <div style="background-color: rgba(46, 204, 113, 0.05); border: 1px dashed rgba(46, 204, 113, 0.3); padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9rem;">
+                <b>⬢ Параметры лота:</b> Всего в раунд допускается 3 бизнес-ангела. Целевой чек каждого инвестора составляет строго <b>$4 000 в эквиваленте</b> (общий пул — $12 000) [INDEX].
+            </div>
+
+            <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700;">📜 Юридические правила и механизмы (РБ):</h4>
+            <ul style="margin-left: 20px; margin-bottom: 20px; list-style-type: square; line-height: 1.7;">
+                <li><b>Сохранение 100% долей:</b> Инвестор передает средства по официальному Договору целевого инвестиционного займа (согласно ГК РБ) [INDEX]. Инвестор не входит в состав учредителей ООО и не имеет права операционного голоса, что защищает проект от бюрократических тупиков.</li>
+                <li><b>Модель Revenue Share (Процент от прибыли):</b> Платой за пользование займом является фиксированное коллективное распределение <b>30% от чистой операционной прибыли (по 10% каждому ангелу)</b>, генерируемой коммерческой арендой ИТ-офисов Центрального ядра (Контур 1) [INDEX].</li>
+                <li><b>Налоговая оптимизация:</b> Благодаря <b>Декрету №6</b> налог на прибыль компании равен 0%, что позволяет направлять всю операционную выручку на выплату дивидендов инвесторам [INDEX]. Подоходный налог с дивидендов снижается до 0% при удержании прибыли в проекте на срок от 5 лет.</li>
+                <li><b>Венчурный выкуп (Бай-бэк):</b> Основатель — Евгений Коршук — сохраняет за собой безусловное право полного одностороннего выкупа контракта инвестора через 5 лет по фиксированному мультипликатору <b>x3.5</b> (выплата $14 000 единовременно, помимо уже полученных ежемесячных процентов) [INDEX].</li>
+            </ul>
+
+            <p style="font-size: 0.85rem; color: #f39c12; background: rgba(230, 126, 34, 0.05); padding: 12px; border-radius: 6px; border: 1px dashed rgba(230, 126, 34, 0.3);">⚠️ <b>Примечание по рискам:</b> Все стоимостные показатели и сметы Фазы №1 носят ориентировочный характер. Финальные параметры окупаемости могут корректироваться в зависимости от курсов валют и изменения рыночной стоимости материалов и услуг в РБ.</p>
+        </div>
+        <div class="modal-footer" style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #25332b; display: flex; justify-content: flex-end; gap: 15px;">
+            <button class="btn btn-secondary" onclick="closeLoanTerms()" style="padding: 10px 20px; font-size: 0.9rem;">Закрыть</button>
+            <a href="vacancies.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem; text-decoration: none;">Обсудить с основателем</a>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript для управления окном Условий Займа -->
+<script>
+    function openLoanTerms(event) {
+        event.preventDefault();
+        document.getElementById('loanTermsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLoanTerms() {
+        document.getElementById('loanTermsModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeLoanTermsOutside(event) {
+        if (event.target.id === 'loanTermsModal') {
+            closeLoanTerms();
+        }
+    }
+</script>
 
 
     
