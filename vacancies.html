@@ -194,8 +194,14 @@ textarea.form-control { resize: vertical; min-height: 70px; }
     </footer>
 
 <!-- HTML структура всплывающей анкеты соавтора -->
-        <!-- HTML-форма, подключенная к Email-шлюзу Formspree -->
-        <form action="https://formspree.io/f/mrpgrdnw" method="POST">
+<div id="applicationModal" class="modal-overlay" onclick="closeFormModalOutside(event)">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">Анкета эксперта: <span>GreenHex.IT</span></div>
+            <button class="modal-close-btn" onclick="closeFormModal()">&times;</button>
+        </div>
+                <!-- HTML-форма, подключенная к Email-шлюзу Formspree -->
+        <form action="ВСТАВЬТЕ_СЮДА_ВАШУ_ССЫЛКУ_ОТ_FORMSPREE" method="POST">
             
             <div class="form-group">
                 <label>Ваше Имя и Фамилия</label>
