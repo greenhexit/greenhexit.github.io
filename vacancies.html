@@ -194,27 +194,25 @@ textarea.form-control { resize: vertical; min-height: 70px; }
     </footer>
 
 <!-- HTML структура всплывающей анкеты соавтора -->
-<div id="applicationModal" class="modal-overlay" onclick="closeFormModalOutside(event)">
-    <div class="modal-content">
-        <div class="modal-header">
-            <div class="modal-title">Анкета эксперта: <span>GreenHex.IT</span></div>
-            <button class="modal-close-btn" onclick="closeFormModal()">&times;</button>
-        </div>
-        <form action="#" method="POST" onsubmit="alert('Анкетные данные приняты! Евгений Коршук свяжется с вами в Telegram для обсуждения опционного соглашения.'); closeFormModal(); return false;">
+        <!-- HTML-форма, подключенная к Email-шлюзу Formspree -->
+        <form action="https://formspree.io/f/mrpgrdnw" method="POST">
             
             <div class="form-group">
                 <label>Ваше Имя и Фамилия</label>
-                <input type="text" class="form-control" required placeholder="Константин Иванов">
+                <!-- Добавлен атрибут name="Имя" -->
+                <input type="text" name="Имя" class="form-control" required placeholder="Константин Иванов">
             </div>
 
             <div class="form-group">
                 <label>Ваш Telegram для оперативной связи (@username)</label>
-                <input type="text" class="form-control" required placeholder="@kos_tech">
+                <!-- Добавлен атрибут name="Telegram" -->
+                <input type="text" name="Telegram" class="form-control" required placeholder="@kos_tech">
             </div>
 
             <div class="form-group">
                 <label>Целевая вакансия (Сфера экспертизы)</label>
-                <select class="form-control">
+                <!-- Добавлен атрибут name="Вакансия" -->
+                <select name="Вакансия" class="form-control">
                     <option>Юриспруденция (Инвест-договоры / Корпоративное право РБ)</option>
                     <option>Архитектура / Урбанистика / Генплан 8 га</option>
                     <option>Инженерия (ВИЭ / СЭС 50 кВт / Сети Smart Grid / ЛОС)</option>
@@ -224,12 +222,14 @@ textarea.form-control { resize: vertical; min-height: 70px; }
 
             <div class="form-group">
                 <label>Ссылка на резюме, LinkedIn или портфолио проектов</label>
-                <input type="url" class="form-control" required placeholder="https://linkedin.com">
+                <!-- Добавлен атрибут name="Ссылка" -->
+                <input type="url" name="Ссылка" class="form-control" required placeholder="https://linkedin.com">
             </div>
 
             <div class="form-group">
                 <label>Сколько часов в неделю вы готовы инвестировать в проект?</label>
-                <select class="form-control">
+                <!-- Добавлен атрибут name="Доступное_время" -->
+                <select name="Доступное_время" class="form-control">
                     <option>До 5 часов (Партнерское консультирование)</option>
                     <option>5–15 часов (Частичная вовлеченность в ТЗ)</option>
                     <option>Более 15 часов (Глубокое соавторство / Core Team)</option>
@@ -238,13 +238,19 @@ textarea.form-control { resize: vertical; min-height: 70px; }
 
             <div class="form-group">
                 <label>Коротко о вашем самом сильном кейсе (Опыт работы)</label>
-                <textarea class="form-control" required placeholder="Спроектировал СЭС на 100 кВт / Защитил 3 инвест-договора в Минской области..."></textarea>
+                <!-- Добавлен атрибут name="Кейс_и_Опыт" -->
+                <textarea name="Кейс_и_Опыт" class="form-control" required placeholder="Спроектировал СЭС на 100 кВт / Защитил 3 инвест-договора в Минской области..."></textarea>
             </div>
 
             <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px; text-align: left;">
-                Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности проекта и обработкой персональных данных согласно Закону РБ № 99-З.
+                Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности проекта и обработкой персональных данных согласно Закону РБ № 99-З [INDEX].
             </p>
-            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer; font-size: 1.05rem;">Отправить анкету Евгению Коршуку</button>
+
+            <div class="modal-footer" style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #25332b; display: flex; justify-content: flex-end; width: 100%;">
+                <button type="submit" class="btn" style="border: none; cursor: pointer; font-size: 1.05rem; padding: 12px 28px; width: auto;">Отправить анкету Евгению Коршуку</button>
+            </div>
+        </form>
+
         </form>
     </div>
 </div>
