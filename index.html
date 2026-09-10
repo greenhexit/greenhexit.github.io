@@ -669,6 +669,18 @@
     function closePrivacyOutside(event) { 
         if (event.target.id === 'privacyModal') { closePrivacy(); } 
     }
+    // 5. ВСТРОЕННЫЕ ФУНКЦИИ ДЛЯ ОКНА КОНСУЛЬТАНТОВ (Исправление ошибки)
+    function openAdvisors(event) { 
+        event.preventDefault(); 
+        document.getElementById('advisorsModal').classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closeAdvisors() { 
+        document.getElementById('advisorsModal').classList.remove('active'); 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closeAdvisorsOutside(event) { if (event.target.id === 'advisorsModal') { closeAdvisors(); } }
+
 </script>
 
 </body>
