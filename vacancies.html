@@ -124,6 +124,7 @@ textarea.form-control { resize: vertical; min-height: 70px; }
 
         
     </style>
+<script src="https://hcaptcha.com" async defer></script>
 </head>
 <body>
 
@@ -248,9 +249,10 @@ textarea.form-control { resize: vertical; min-height: 70px; }
                 <textarea name="Кейс_и_Опыт" class="form-control" required placeholder="Спроектировал СЭС на 100 кВт / Защитил 3 инвест-договора в Минской области..."></textarea>
             </div>
 
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px; text-align: left;">
-                Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности проекта и обработкой персональных данных согласно Закону РБ № 99-З [INDEX].
-            </p>
+            <!-- Виджет проверки "Я не робот" в темной ИТ-стилистике -->
+<div class="form-group" style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <div class="h-captcha" data-sitekey="79053896-17b5-48b9-bc17-a0680cb8c772" data-theme="dark"></div>
+</div>
 
             <div class="modal-footer" style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #25332b; display: flex; justify-content: flex-end; width: 100%;">
                 <button type="submit" class="btn" style="border: none; cursor: pointer; font-size: 1.05rem; padding: 12px 28px; width: auto;">Отправить анкету Евгению Коршуку</button>
