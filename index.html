@@ -461,26 +461,6 @@
         </div>
     </div>
 </div>
-
-<!-- Дополнительный JavaScript для управления окном Политики -->
-<script>
-    function openPrivacy(event) {
-        event.preventDefault();
-        document.getElementById('privacyModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePrivacy() {
-        document.getElementById('privacyModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function closePrivacyOutside(event) {
-        if (event.target.id === 'privacyModal') {
-            closePrivacy();
-        }
-    }
-</script>
 <!-- HTML структура модального окна Финансовой Прозрачности с ЗП Основателя и Юр.Дисклеймером -->
 <div id="financeModal" class="modal-overlay" onclick="closeFinanceOutside(event)">
     <div class="modal-content" style="max-width: 750px;">
@@ -552,26 +532,6 @@
         </div>
     </div>
 </div>
-
-<!-- JavaScript для управления окном Финансовой Прозрачности -->
-<script>
-    function openFinance(event) {
-        event.preventDefault();
-        document.getElementById('financeModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeFinance() {
-        document.getElementById('financeModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function closeFinanceOutside(event) {
-        if (event.target.id === 'financeModal') {
-            closeFinance();
-        }
-    }
-</script>
     <!-- HTML структура модального окна Консультантов Проекта -->
 <div id="advisorsModal" class="modal-overlay" onclick="closeAdvisorsOutside(event)">
     <div class="modal-content" style="max-width: 750px;">
@@ -612,67 +572,6 @@
         </div>
     </div>
 </div>
-
-<!-- JavaScript для управления окном Консультантов -->
-<script>
-    function openAdvisors(event) {
-        event.preventDefault();
-        document.getElementById('advisorsModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeAdvisors() {
-        document.getElementById('advisorsModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function closeAdvisorsOutside(event) {
-        if (event.target.id === 'advisorsModal') {
-            closeAdvisors();
-        }
-    }
-</script>
-
-<!-- JavaScript для управления окном Условий Займа -->
-<script>
-    function openLoanTerms(event) {
-        event.preventDefault();
-        document.getElementById('loanTermsModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLoanTerms() {
-        document.getElementById('loanTermsModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function closeLoanTermsOutside(event) {
-        if (event.target.id === 'loanTermsModal') {
-            closeLoanTerms();
-        }
-    }
-
-    <script>
-    // Функции для Отказа от ответственности
-    function openDisclaimer(event) { event.preventDefault(); document.getElementById('disclaimerModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeDisclaimer() { document.getElementById('disclaimerModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
-    function closeDisclaimerOutside(event) { if (event.target.id === 'disclaimerModal') { closeDisclaimer(); } }
-
-    // Функции для Политики конфиденциальности
-    function openPrivacy(event) { event.preventDefault(); document.getElementById('privacyModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closePrivacy() { document.getElementById('privacyModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
-    function closePrivacyOutside(event) { if (event.target.id === 'privacyModal') { closePrivacy(); } }
-
-    // Функции для Финансовой прозрачности
-    function openFinance(event) { event.preventDefault(); document.getElementById('financeModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeFinance() { document.getElementById('financeModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
-    function closeFinanceOutside(event) { if (event.target.id === 'financeModal') { closeFinance(); } }
-
-    // Функции для Условий инвестиционного займа
-    function openLoanTerms(event) { event.preventDefault(); document.getElementById('loanTermsModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeLoanTerms() { document.getElementById('loanTermsModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
-    function closeLoanTermsOutside(event) { if (event.target.id === 'loanTermsModal') { closeLoanTerms(); } }
-</script>  
 <!-- HTML структура модального окна Условий Инвестиционного Займа -->
 <div id="loanTermsModal" class="modal-overlay" onclick="closeLoanTermsOutside(event)">
     <div class="modal-content" style="max-width: 700px;">
@@ -713,6 +612,64 @@
         </div>
     </div>
 </div>
+<!-- Итоговый правильный блок скриптов управления сайтом -->
+<script>
+    // 1. Функции для Условий инвестиционного займа
+    function openLoanTerms(event) { 
+        event.preventDefault(); 
+        document.getElementById('loanTermsModal').classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closeLoanTerms() { 
+        document.getElementById('loanTermsModal').classList.remove('active'); 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closeLoanTermsOutside(event) { 
+        if (event.target.id === 'loanTermsModal') { closeLoanTerms(); } 
+    }
+
+    // 2. Функции для Финансовой прозрачности
+    function openFinance(event) { 
+        event.preventDefault(); 
+        document.getElementById('financeModal').classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closeFinance() { 
+        document.getElementById('financeModal').classList.remove('active'); 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closeFinanceOutside(event) { 
+        if (event.target.id === 'financeModal') { closeFinance(); } 
+    }
+
+    // 3. Функции для Отказа от ответственности
+    function openDisclaimer(event) { 
+        event.preventDefault(); 
+        document.getElementById('disclaimerModal').classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closeDisclaimer() { 
+        document.getElementById('disclaimerModal').classList.remove('active'); 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closeDisclaimerOutside(event) { 
+        if (event.target.id === 'disclaimerModal') { closeDisclaimer(); } 
+    }
+
+    // 4. Функции для Политики конфиденциальности
+    function openPrivacy(event) { 
+        event.preventDefault(); 
+        document.getElementById('privacyModal').classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closePrivacy() { 
+        document.getElementById('privacyModal').classList.remove('active'); 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closePrivacyOutside(event) { 
+        if (event.target.id === 'privacyModal') { closePrivacy(); } 
+    }
+</script>
 
 </body>
 </html>
