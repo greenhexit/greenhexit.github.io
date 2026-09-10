@@ -169,6 +169,7 @@
 }
 
     </style>
+<script src="https://hcaptcha.com" async defer></script>
 </head>
 <body>
 
@@ -286,26 +287,41 @@
 
             <div class="form-box">
                 <h3 style="text-align: center; margin-bottom: 25px; font-weight: 800;">Заказать консультацию о работе в GreenHex.IT</h3>
-                <form action="#" method="POST" onsubmit="alert('Заявка принята! Евгений Коршук свяжется с вами в Telegram в ближайшее время.'); return false;">
+                               <form action="ВСТАВЬТЕ_СЮДА_ВАШУ_ССЫЛКУ_ОТ_FORMSPREE" method="POST">
                     <div class="form-group">
-                        <label>Ваше ФИО</label>
-                        <input type="text" class="form-control" required placeholder="Константин">
+                        <label>Ваше Имя</label>
+                        <!-- Добавлен атрибут name="Имя_Главная" -->
+                        <input type="text" name="Имя_Главная" class="form-control" required placeholder="Константин">
                     </div>
                     <div class="form-group">
                         <label>Ваш Telegram для связи (@username)</label>
-                        <input type="text" class="form-control" required placeholder="@kos_tech">
+                        <!-- Добавлен атрибут name="Telegram_Главная" -->
+                        <input type="text" name="Telegram_Главная" class="form-control" required placeholder="@kos_tech">
                     </div>
                     <div class="form-group">
                         <label>Ваша ключевая экспертность</label>
-                        <select class="form-control">
-                            <option>Бизнес-ангел / Инвестор </option>
+                        <!-- Добавлен атрибут name="Экспертность_Главная" -->
+                        <select name="Экспертность_Главная" class="form-control">
+                            <option>Бизнес-ангел / Нивестирование</option>
                             <option>Юриспруденция / Инвест-договоры РБ</option>
                             <option>Архитектура / Проектирование городов</option>
                             <option>Инженерия сетей / ВИЭ / Агро</option>
                             <option>Финансы / Маркетинг / ИТ-Резидент</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.05rem;">Заказать</button>
+
+                    <!-- Виджет защиты от спама "Я не робот" -->
+                    <div class="form-group" style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+                        <div class="h-captcha" data-sitekey="79053896-17b5-48b9-bc17-a0680cb8c772" data-theme="dark"></div>
+                    </div>
+
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; text-align: left;">
+                        Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности проекта и обработкой персональных данных согласно Закону РБ № 99-З [INDEX].
+                    </p>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.05rem; border: none; cursor: pointer;">заказать</button>
+                </form>
+
                 </form>
             </div>
         </div>
