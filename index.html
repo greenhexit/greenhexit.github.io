@@ -360,7 +360,7 @@
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Экосистема</h4>
                         <a href="founders.html" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Учредители и соучредители</a>
-                        <a href="#volunteer" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Консультанты проекта</a>
+                        <a href="#" onclick="openAdvisors(event)" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Консультанты проекта</a>
                         <a href="vacancies.html" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Вакансии волонтеров</a>
                     </div>
 
@@ -603,6 +603,67 @@
         </div>
     </div>
 </div>
+
+    <!-- HTML структура модального окна Консультантов Проекта -->
+<div id="advisorsModal" class="modal-overlay" onclick="closeAdvisorsOutside(event)">
+    <div class="modal-content" style="max-width: 750px;">
+        <div class="modal-header">
+            <div class="modal-title">Экспертный совет: <span>Консультанты проекта</span></div>
+            <button class="modal-close-btn" onclick="closeAdvisors()">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: left;">
+            <p style="margin-bottom: 25px; font-size: 1.05rem;">Реализация высокотехнологичного экополиса <b>GreenHex.IT</b> требует жесткого контроля стандартов. Для верификации проектных решений Фазы №1 мы привлекаем независимый пул внешних консультантов и менторов из профильных индустрий РБ:</p>
+            
+            <!-- Профиль 1 -->
+            <div style="background: #0f1311; border: 1px solid #25332b; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Консультант по энергетической безопасности и ВИЭ</h4>
+                <p style="font-size: 0.9rem; color: #8ca397; margin-bottom: 8px;"><b>Роль в проекте:</b> Экспертная оценка и аудит ТЗ наземного солнечного комплекса мощностью 50 кВт и систем Smart Grid.</p>
+                <p style="font-size: 0.85rem; color: #2ecc71;"><b>Статус:</b> Привлечение внешнего аттестованного ГИП (Главного инженера проекта) с опытом прохождения Госэнергогазнадзора РБ.</p>
+            </div>
+
+            <!-- Профиль 2 -->
+            <div style="background: #0f1311; border: 1px solid #25332b; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Советник по GR и Инвестиционному законодательству</h4>
+                <p style="font-size: 0.9rem; color: #8ca397; margin-bottom: 8px;"><b>Роль в проекте:</b> Аудит пакета документов перед подачей в Минский облисполком на получение 8 га земли без аукциона по Декрету №10.</p>
+                <p style="font-size: 0.85rem; color: #2ecc71;"><b>Статус:</b> Экспертное менторство со стороны специалистов по государственно-частному партнерству (ГЧП).</p>
+            </div>
+
+            <!-- Профиль 3 -->
+            <div style="background: #0f1311; border: 1px solid #25332b; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Эко-аудитор и специалист по био-очистке (ЛОС)</h4>
+                <p style="font-size: 0.9rem; color: #8ca397; margin-bottom: 8px;"><b>Роль в проекте:</b> Независимая экспертиза локальных очистных сооружений биологической очистки и расчет санитарных зон для агро-контура 4 [INDEX].</p>
+                <p style="font-size: 0.85rem; color: #2ecc71;"><b>Статус:</b> Консультационная поддержка на соответствие экологическим нормам Министерства природных ресурсов РБ.</p>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #697d72; text-align: justify; margin-top: 15px;">
+                * Привлечение сертифицированных консультантов на ранней стадии минимизирует риски отказа госорганов при согласовании ТЭО первой очереди строительства.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="closeAdvisors()" style="padding: 10px 20px; font-size: 0.9rem;">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript для управления окном Консультантов -->
+<script>
+    function openAdvisors(event) {
+        event.preventDefault();
+        document.getElementById('advisorsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAdvisors() {
+        document.getElementById('advisorsModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeAdvisorsOutside(event) {
+        if (event.target.id === 'advisorsModal') {
+            closeAdvisors();
+        }
+    }
+</script>
 
 <!-- JavaScript для управления окном Условий Займа -->
 <script>
