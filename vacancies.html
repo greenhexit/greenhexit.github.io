@@ -52,6 +52,77 @@
         .disclaimer { font-size: 0.85rem; color: #f39c12; background: rgba(230, 126, 34, 0.05); padding: 15px; border-radius: 8px; border: 1px dashed rgba(230, 126, 34, 0.3); margin-bottom: 40px; }
 
         footer { background: #080b09; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid #121815; margin-top: 40px; }
+    
+/* Стили кастомного модального окна с анкетой */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 11, 9, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-content {
+    background-color: #161d19;
+    border: 1px solid #25332b;
+    box-shadow: 0 20px 50px rgba(46, 204, 113, 0.1);
+    width: 90%;
+    max-width: 550px;
+    border-radius: 14px;
+    padding: 30px;
+    color: #e0e6e3;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #25332b;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+}
+.modal-title span { color: var(--accent); }
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+.modal-close-btn:hover { color: var(--accent); }
+.form-group { margin-bottom: 16px; text-align: left; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+.form-control { width: 100%; padding: 11px 14px; background: #0f1311; border: 1px solid #25332b; border-radius: 8px; color: #fff; font-size: 0.95rem; transition: border-color 0.3s; }
+.form-control:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 10px rgba(46, 204, 113, 0.1); }
+textarea.form-control { resize: vertical; min-height: 70px; }
+
+        
     </style>
 </head>
 <body>
@@ -111,7 +182,8 @@
         <div class="cta-box">
             <h3>Готовы вписать свое имя в историю?</h3>
             <p>Если ваша квалификация соответствует масштабу задач, оставьте свои контакты. Основатель проекта Евгений Коршук свяжется с вами лично для обсуждения условий опционного контракта.</p>
-            <a href="index.html#volunteer" class="btn">Подать заявку в команду</a>
+            <button onclick="openFormModal(event)" class="btn" style="border: none; cursor: pointer;">Подать заявку в команду</button>
+
         </div>
     </main>
 
@@ -121,5 +193,83 @@
         </div>
     </footer>
 
+<!-- HTML структура всплывающей анкеты соавтора -->
+<div id="applicationModal" class="modal-overlay" onclick="closeFormModalOutside(event)">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title">Анкета эксперта: <span>GreenHex.IT</span></div>
+            <button class="modal-close-btn" onclick="closeFormModal()">&times;</button>
+        </div>
+        <form action="#" method="POST" onsubmit="alert('Анкетные данные приняты! Евгений Коршук свяжется с вами в Telegram для обсуждения опционного соглашения.'); closeFormModal(); return false;">
+            
+            <div class="form-group">
+                <label>Ваше Имя и Фамилия</label>
+                <input type="text" class="form-control" required placeholder="Константин Иванов">
+            </div>
+
+            <div class="form-group">
+                <label>Ваш Telegram для оперативной связи (@username)</label>
+                <input type="text" class="form-control" required placeholder="@kos_tech">
+            </div>
+
+            <div class="form-group">
+                <label>Целевая вакансия (Сфера экспертизы)</label>
+                <select class="form-control">
+                    <option>Юриспруденция (Инвест-договоры / Корпоративное право РБ)</option>
+                    <option>Архитектура / Урбанистика / Генплан 8 га</option>
+                    <option>Инженерия (ВИЭ / СЭС 50 кВт / Сети Smart Grid / ЛОС)</option>
+                    <option>Агроэкология / Автоматизированные теплицы</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ссылка на резюме, LinkedIn или портфолио проектов</label>
+                <input type="url" class="form-control" required placeholder="https://linkedin.com">
+            </div>
+
+            <div class="form-group">
+                <label>Сколько часов в неделю вы готовы инвестировать в проект?</label>
+                <select class="form-control">
+                    <option>До 5 часов (Партнерское консультирование)</option>
+                    <option>5–15 часов (Частичная вовлеченность в ТЗ)</option>
+                    <option>Более 15 часов (Глубокое соавторство / Core Team)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Коротко о вашем самом сильном кейсе (Опыт работы)</label>
+                <textarea class="form-control" required placeholder="Спроектировал СЭС на 100 кВт / Защитил 3 инвест-договора в Минской области..."></textarea>
+            </div>
+
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px; text-align: left;">
+                Нажимая кнопку, вы соглашаетесь с Политикой конфиденциальности проекта и обработкой персональных данных согласно Закону РБ № 99-З [INDEX].
+            </p>
+
+            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer; font-size: 1.05rem;">Отправить анкету Евгению Коршуку</button>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript для управления окном анкеты -->
+<script>
+    function openFormModal(event) {
+        event.preventDefault();
+        document.getElementById('applicationModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFormModal() {
+        document.getElementById('applicationModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeFormModalOutside(event) {
+        if (event.target.id === 'applicationModal') {
+            closeFormModal();
+        }
+    }
+</script>
+
+    
 </body>
 </html>
