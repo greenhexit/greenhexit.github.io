@@ -214,24 +214,24 @@
         </div>
     </section>
 
-    <footer style="background-color: #080b09; color: #8ca397; padding: 60px 0 30px; border-top: 1px solid #121815; font-size: 0.9rem;">
+   <footer style="background-color: #080b09; color: #8ca397; padding: 60px 0 30px; border-top: 1px solid #121815; font-size: 0.9rem;">
         <div class="container" style="display: flex; flex-direction: column; gap: 40px;">
             
-            <!-- Основной блок футера: Название слева, Сетка из 3-х столбиков справа -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px;">
+            <!-- Основной блок футера: Расширенный зазор (gap: 60px) между левой и правой стороной -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 60px;">
                 
-                <!-- Левый блок: Бренд и описание -->
+                <!-- Левый блок: Бренд и описание (Фиксированная максимальная ширина) -->
                 <div style="flex: 1; min-width: 260px; max-width: 320px;">
                     <h3 style="color: #fff; font-size: 2rem; font-weight: 850; margin-bottom: 12px; letter-spacing: -1px;">GreenHex<span style="color: #2ecc71;">.IT</span></h3>
                     <p style="color: #556b5f; font-size: 0.85rem; margin-bottom: 15px;">Автономный гексагональный ИТ-экополис Евгения Коршука. Проект регенерации неиспользуемых территорий в Минской области.</p>
                 </div>
 
-                <!-- Правый блок: 3 вертикальных столбика -->
-                <div style="flex: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; min-width: 300px; margin-left: auto;">
+                <!-- Правый блок: 3 вертикальных столбика с увеличенным левым отступом (padding-left: 80px) -->
+                <div style="flex: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; min-width: 300px; padding-left: 80px;">
                     
                     <!-- СТОЛБИК 1: Экосистема -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Экосистема</h4>
+                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">⬢ Экосистема</h4>
                         <a href="#volunteer" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Учредители и соучредители</a>
                         <a href="#volunteer" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Консультанты проекта</a>
                         <a href="#volunteer" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Вакансии волонтеров</a>
@@ -239,14 +239,14 @@
 
                     <!-- СТОЛБИК 2: Инвесторам -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Инвесторам</h4>
+                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">⬢ Инвесторам</h4>
                         <a href="#investor" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Контакты для связи</a>
                         <a href="#investor" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Финансовая прозрачность</a>
                     </div>
 
                     <!-- СТОЛБИК 3: Правовой блок -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Правовой блок</h4>
+                        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">⬢ Правовой блок</h4>
                         <a href="#" onclick="alert('Политика конфиденциальности: Данные анкет шифруются и передаются лично Евгению Коршуку.')" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Политика конфиденциальности</a>
                         <a href="#" onclick="alert('Отказ от ответственности: Все расчеты Фазы №1 носят предпроектный характер и уточняются в Минском облисполкоме.')" style="color: #8ca397; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#2ecc71'" onmouseout="this.style.color='#8ca397'">Отказ от ответственности</a>
                     </div>
@@ -256,7 +256,7 @@
 
             <!-- Самый нижний блок: Копирайт -->
             <div style="border-top: 1px solid #141b17; padding-top: 20px; font-size: 0.8rem; color: #4d5e55; text-align: left;">
-                &copy; 2026 Проект высокотехнологичного ИТ-экополиса GreenHex.IT. Узденский район, Республика Беларусь. Все права соавторов защищены [INDEX].
+                &copy; 2026 Проект высокотехнологичного ИТ-экополиса GreenHex.IT. Узденский район, Республика Беларусь. Все права соавторов защищены.
             </div>
         </div>
     </footer>
